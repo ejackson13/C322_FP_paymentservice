@@ -21,7 +21,7 @@ public class PaymentController {
 
     // return order info for all orders given customer/seller id
     @GetMapping("/{type}/{userId}")
-    @CrossOrigin()
+    @CrossOrigin(origins = {})
     public List<Summary> getAllOrderInfo(@PathVariable String type, @PathVariable int userId) {
         List<Receipt> allReceipts = receiptRepository.findAll();
         List<Receipt> validReceipts = new ArrayList<>();
@@ -45,7 +45,7 @@ public class PaymentController {
 
     // return order info for the given customer/seller id and order id
     @GetMapping("/{type}/{userId}/{orderId}")
-    @CrossOrigin()
+    @CrossOrigin(origins = {})
     public Summary getOrderInfoById(@PathVariable String type, @PathVariable int userId, @PathVariable int orderId) {
         Receipt receipt = receiptRepository.getReceiptByOrderId(orderId);
 
